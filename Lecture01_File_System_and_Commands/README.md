@@ -76,9 +76,9 @@ There are other wildcards that might improve your selection possibilities.
     > <ins>Ex:</ins> `ls lab{data_structures,10,11,12,13,14,15,linux}.pdf` matches file starts with lab, continued with one of the strings in the curly braces, and end with .pdf.  
 (_Care must be taken that there is no space after the comma, otherwise it will be an erroneous use!_)
 - **Range of Characters**  
-    - What if we want to select file names that start with an alphabetic character, followed by a number and ends with pdf?  
+    - **What if we want to select file names that start with an alphabetic character, followed by a number and ends with pdf?**  
     > <ins>Answer:</ins> `ls [abcdefghijklmnopqrstuvwxyz][0123456789]pdf`. In the range structure this can be expressed as follows: `ls [a-z][0-9]pdf`.
-    - What if we want to use both uppercase and lowercase letters?  
+    - **What if we want to use both uppercase and lowercase letters?**
     > <ins>Answer:</ins> `ls [a-zA-Z][0-9]pdf`
 - **Class Definitions**
     - If the full range is required, then you can use the class definitions. If another range is required, such as i to m, or 4 to 13, then the range syntax can be used.
@@ -154,10 +154,10 @@ The second column (3) is the number of hard links.
 - To do so, `ln` command can be used:
 > <ins>Ex:</ins> `ln world.sql kepler452b.sql`  
         ![ln_command](https://github.com/user-attachments/assets/5f35f32d-c197-46ec-a776-29c81658f839)
-- Now that we have created a new hard link, the long listing shows both of these files. The hard link column is correctly listed as 2 for world.sql and kepler452b.sql. However, how can it be know that they are the same file? There can be two files that have the same time stamp, the same size, etc. The same data can be contained even in two different files. How can it be check that they both point to the same file?  
+- Now that we have created a new hard link, the long listing shows both of these files. The hard link column is correctly listed as 2 for world.sql and kepler452b.sql. However, **how can it be know that they are the same file? There can be two files that have the same time stamp, the same size, etc. The same data can be contained even in two different files. How can it be check that they both point to the same file?**  
 > <ins>Answer:</ins>  
         ![-li_or_-i_option](https://github.com/user-attachments/assets/d7169c6b-1007-485e-8735-21427941873e)
-- The `-i` (`--inode`) option of the `ls` command prints the index number of each file. What happens if you delete one of these files? When is the file really deleted?
+- The `-i` (`--inode`) option of the `ls` command prints the index number of each file. **What happens if you delete one of these files? When is the file really deleted?**
 - <ins>Answer:</ins> The data part of the file is deleted when the last hard link to the file is deleted. So, to completely remove a file, all of its hard links must be deleted. There are two important limitations to hard links:
     - A hard link can not reference a file outside its own file system. This means a link may not reference a file that is not on the same partition as the link itself.
     - A hard link may not reference a directory.
@@ -171,5 +171,13 @@ The second column (3) is the number of hard links.
 - The size of the symbolic links is very small, since it is only a link, not the original file.
     > <ins>Ex:</ins>  
         ![ln_-s_option](https://github.com/user-attachments/assets/0d9d9412-2330-4310-8f34-8b5fc69fa176)
-- Why do we need symbolic links?  
+- **Why do we need symbolic links?** 
     > <ins>Answer:</ins> Suppose we have a library: A.1.4.1. When a program is compiled, it is usually linked to this shared object (or dynamic library). However, updates are common, and the next minor version might be A.1.5.0. When this minor update arrives, the executables won't be able to locate the shared object and will terminate with an error message. Most of the libraries are given a symbolic link, with a major version number. Symbolic link A.1 can be points to A.1.4.1. When a new minor update arrives, A.1 will point to the update. So the executables will run without noticing any change.
+## Command Types
+- **An Executable Program:** The command is an executable file, compiled or interpreted (a script), that resides in a directory. The usual locations are /bin, /usr/bin, etc. You can use the **`which`** command to locate the path of a command.
+- **A command built into shell itself:** Similar to **`cd`**, there are some shell built-in commands.
+- **A shell function:** Functions are small bash scripts that are incorporated into the shell.
+- **An alias:** We can derive new commands from existing ones.
+- **How can be know which is which?** The easiest way is to use the **`type`** command.  
+> <ins>Ex:</ins>  
+    ![type_and_which_command](https://github.com/user-attachments/assets/80aa65f0-a4dd-4db2-acdc-b2a05d49df6f)
