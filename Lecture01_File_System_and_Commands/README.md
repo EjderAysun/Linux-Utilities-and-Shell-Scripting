@@ -139,3 +139,25 @@ There are other wildcards that might improve your selection possibilities.
     - There is no "Recycle Bin" in Linux. If a file is removed, it is gone forever.
     - Be very careful with the `-rm` command, especially when using wildcards.
     - Consider the situation when you want to delete all the HTML files, but instead of using wildcardsas `*.html`, a space is used between the star and the dot: `rm * .html`. To make sure that you are deleting the correct files when using a wildcard, check the `ls` command first. If the correct files are listed, then you can use the `rm` command.
+
+## Hard and Soft Links
+### Hard Links
+- Files are made up two parts:
+    - the data part, containing the file's content
+    - the name part, which holds the file's name
+- Since every file has a name, each file has a hard link by default.
+- In the long listing format with the ls command, the second column shows the number of hard links of the file.   
+> <ins>Ex:</ins> _Output:_ `-rw-r--r-- 3 ejder ejder   397985 Mar 28 15:10  world.sql`  
+The second column (3) is the number of hard links.
+- When created another hard link for the file, we create additional name parts that all refer to the same data part. The system assigns a chain of disk blocks to an **inode**, which is then associated with the name part.
+- Each hard link therefore refers to a specific inode containing the file's contents.
+- To do so, `ln` command can be used:
+> <ins>Ex:</ins> `ln world.sql kepler452b.sql`  
+        ![ln_command](https://github.com/user-attachments/assets/5f35f32d-c197-46ec-a776-29c81658f839)
+- Now that we have created a new hard link, the long listing shows both of these files. The hard link column is correctly listed as 2 for world.sql and kepler452b.sql. However, how can it be know that they are the same file? There can be two files that have the same time stamp, the same size, etc. The same data can be contained even in two different files. How can it be check that they both point to the same file?  
+> <ins>Answer:</ins>  
+        ![-li_or_-i_option](https://github.com/user-attachments/assets/d7169c6b-1007-485e-8735-21427941873e)
+- The `-i` (`--inode`) option of the `ls` command prints the index number of each file. What happens if you delete one of these files? When is the file really deleted?
+- <ins>Answer:</ins> The data part of the file is deleted when the last hard link to the file is deleted. So, to completely remove a file, all of its hard links must be deleted. There are two important limitations to hard links:
+    - A hard link can not reference a file outside its own file system. This means a link may not reference a file that is not on the same partition as the link itself.
+    - A hard link may not reference a directory.
