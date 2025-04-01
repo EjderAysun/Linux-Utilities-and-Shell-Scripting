@@ -78,6 +78,7 @@ There are other wildcards that might improve your selection possibilities.
 - **Class Definitions**
     - If the full range is required, then you can use the class definitions. If another range is required, such as i to m, or 4 to 13, then the range syntax can be used.
     - Here's the same command as the previous example using class definitions: `ls [[:lower:]][[:digit:]].pdf`
+
 |Character Class|Meaning|
 |---|---|
 |`[:alnum:]`|Matches any alphanumeric characters (both alphabetic and numerals)|
