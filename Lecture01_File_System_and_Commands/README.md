@@ -161,3 +161,15 @@ The second column (3) is the number of hard links.
 - <ins>Answer:</ins> The data part of the file is deleted when the last hard link to the file is deleted. So, to completely remove a file, all of its hard links must be deleted. There are two important limitations to hard links:
     - A hard link can not reference a file outside its own file system. This means a link may not reference a file that is not on the same partition as the link itself.
     - A hard link may not reference a directory.
+### Soft Links
+- Soft links (symbolic links) were created to overcome the limitations of the hard links.
+- They work with a special type of file that contains a text pointer to the referenced file or directory.
+- The `ln` command, with the `-s` (`--symbolic`) option is used to create symbolic links.  
+    > <ins>Ex:</ins> `ln -s world.sql earth.sql`
+- The symbolic name is actually a path.
+- The symbolic link will look for the file using this path. Therefore, if the target file is moved (or deleted), the link will be broken.
+- The size of the symbolic links is very small, since it is only a link, not the original file.
+    > <ins>Ex:</ins>  
+        ![ln_-s_option](https://github.com/user-attachments/assets/0d9d9412-2330-4310-8f34-8b5fc69fa176)
+- Why do we need symbolic links?  
+    > <ins>Answer:</ins> Suppose we have a library: A.1.4.1. When a program is compiled, it is usually linked to this shared object (or dynamic library). However, updates are common, and the next minor version might be A.1.5.0. When this minor update arrives, the executables won't be able to locate the shared object and will terminate with an error message. Most of the libraries are given a symbolic link, with a major version number. Symbolic link A.1 can be points to A.1.4.1. When a new minor update arrives, A.1 will point to the update. So the executables will run without noticing any change.
