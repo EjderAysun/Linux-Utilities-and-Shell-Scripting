@@ -5,16 +5,17 @@
 ## `ls` ⇒ list (COMMAND)
 
 -   Giving `ls` command lists the contents of the current directory.
--   **`-rw-r--r--`** ⇒ shows the access permissions (it is not a command)
-|Option|Long Option|Description|
-|---|---|---|
-|**`-l`**||list in long format (get information about a file)|
-|**`-h`**|`-human-readable`|make file size is human readable, <ins>Ex:</ins> (4096 to 4.0K)|
-|**`-a`**|`--all`|list all files, including hidden files|
-|**`-d`**|`--directory`|show info about the directory, do not list the directory contents|
-|**`-r`**|`--reverse`|display in reverse order (the default in ls is alphabetical)|
-|**`-S`**||sort results by file size|
-|**`-t`**||sort by modification time|
+-   **`-rw-r--r--`** ⇒ shows the access permissions (it is not a command)  
+
+    |Option|Long Option|Description|
+    |---|---|---|
+    |**`-l`**||list in long format (get information about a file)|
+    |**`-h`**|`-human-readable`|make file size is human readable, <ins>Ex:</ins> (4096 to 4.0K)|
+    |**`-a`**|`--all`|list all files, including hidden files|
+    |**`-d`**|`--directory`|show info about the directory, do not list the directory contents|
+    |**`-r`**|`--reverse`|display in reverse order (the default in ls is alphabetical)|
+    |**`-S`**||sort results by file size|
+    |**`-t`**||sort by modification time|
 
 ## Viewing Files
 
@@ -42,13 +43,14 @@
 
 ## Wildcards
 - They are a feature of the shell that help us select a group of files by using special characters.
-- Basic Wildcards:
-|Wildcard|Meaning|
-|---|---|
-|**`*`**|Matches any character|
-|**`?`**|Matches a single character|
-|**`[chars]`**|Matches any character in a set of characters|
-|**`[!chars]`**|Matches any character NOT in a set of characters|
+- Basic Wildcards:  
+
+    |Wildcard|Meaning|
+    |---|---|
+    |**`*`**|Matches any character|
+    |**`?`**|Matches a single character|
+    |**`[chars]`**|Matches any character in a set of characters|
+    |**`[!chars]`**|Matches any character NOT in a set of characters|
 - **Wildcard `*`**
     - The star, *, matches any number of characters.  
     > <ins>Ex:</ins> To list all the files that end with _png_: `ls *png`  
@@ -81,14 +83,15 @@ There are other wildcards that might improve your selection possibilities.
 - **Class Definitions**
     - If the full range is required, then you can use the class definitions. If another range is required, such as i to m, or 4 to 13, then the range syntax can be used.
     - Here's the same command as the previous example using class definitions:  
-    `ls [[:lower:]][[:digit:]].pdf`
-    |Character Class|Meaning|
-    |---|---|
-    |`[:alnum:]`|Matches any alphanumeric characters (both alphabetic and numerals)|
-    |`[:alpha:]`|Matches any alphabetic characters|
-    |`[:digit:]`|Matches any numeral|
-    |`[:lower:]`|Matches any lower-case letter|
-    |`[:upper:]`|Matches any upper-case letter|
+    `ls [[:lower:]][[:digit:]].pdf`  
+
+        |Character Class|Meaning|
+        |---|---|
+        |`[:alnum:]`|Matches any alphanumeric characters (both alphabetic and numerals)|
+        |`[:alpha:]`|Matches any alphabetic characters|
+        |`[:digit:]`|Matches any numeral|
+        |`[:lower:]`|Matches any lower-case letter|
+        |`[:upper:]`|Matches any upper-case letter|
 
 ## Basic Commands
 - **`mkdir` ⇒ make directory** (COMMAND)
@@ -105,13 +108,14 @@ There are other wildcards that might improve your selection possibilities.
     > <ins>Ex:</ins> `cp /home/ejder/file1 /usr/bin` This command copies file1 to the /usr/bin directory. Since a new name is not supplied, the file will be copied using its original name. The absolute path of the new file will be /usr/bin/file1.
     - It is also possible to copy a list of files to a new directory. Since there will be more than one file, the destination path must be a directory.  
     > <ins>Ex:</ins> `cp file1 file2 file3 /etc/files`
-    - When files are copied, the copies take on the default attributes of the user performing the copy. Their permissions will be updated.
-    |Option|Long Option|Description|
-    |---|---|---|
-    |**`-a`**|**`--archive`**|Option copies the files and directories and all of their attributes, including ownerships and permissions.|
-    |**`-i`**|**`--interactive`**|Option enables interactive mode. In this case, cp will ask for confirmation to overwrite an existing file. If you do not supply this option, cp will silently overwrite the files.|
-    |**`-v`**|**`--verbose`**|Option enables the verbose mode, where cp prints informative messages as the copy is performed.|
-    |**`-u`**|**`--update`**|Option is the update mode, cp only copies if the files do not exist in the destination path, or are newer than the existing corresponding files.|
+    - When files are copied, the copies take on the default attributes of the user performing the copy. Their permissions will be updated.  
+
+        |Option|Long Option|Description|
+        |---|---|---|
+        |**`-a`**|**`--archive`**|Option copies the files and directories and all of their attributes, including ownerships and permissions.|
+        |**`-i`**|**`--interactive`**|Option enables interactive mode. In this case, cp will ask for confirmation to overwrite an existing file. If you do not supply this option, cp will silently overwrite the files.|
+        |**`-v`**|**`--verbose`**|Option enables the verbose mode, where cp prints informative messages as the copy is performed.|
+        |**`-u`**|**`--update`**|Option is the update mode, cp only copies if the files do not exist in the destination path, or are newer than the existing corresponding files.|
 
     - The `-r`(`--recursive`) option is the recursive mode, copies files and directories.  
     > <ins>Ex:</ins> `cp -r /home/ejder/Desktop /home/ejder/backup` To copy the /home/ejder/Desktop directory to /home/ejder/backup, this command can be used.
