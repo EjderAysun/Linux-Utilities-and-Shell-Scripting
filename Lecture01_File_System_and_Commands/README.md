@@ -181,3 +181,21 @@ The second column (3) is the number of hard links.
 - **How can be know which is which?** The easiest way is to use the **`type`** command.  
 > <ins>Ex:</ins>  
     ![type_and_which_command](https://github.com/user-attachments/assets/80aa65f0-a4dd-4db2-acdc-b2a05d49df6f)
+
+## Manuals
+- Manuals are the best references when you are stuck. There are manuals for the executable files. However, there are also manuals for administrative commands, programming interfaces, file formats, etc. These are called sections and can be referred to them. The following slides contains the list of sections:  
+    |Section|Contents|
+    |---|---|
+    |1|User commands|
+    |2|Prog. Interfaces, kernel system calls|
+    |3|Prog. Interfaces to C library|
+    |4|Special files such as nodes|
+    |5|File formats|
+    |6|Games and amusements|
+    |7|Miscellaneous|
+    |8|System Administration Commands|
+
+> <ins>Ex:</ins> There is a hostname configuration file, hostname resolution description and a **`hostname`** command as well. If we type `man hostname`, we get the `hostname` command manual page. Since `hostname` supports many sections, it displays the first matched entry. It can be searched using **`whatis`** command, which gives a short description of the command.  
+    ![whatis_command](https://github.com/user-attachments/assets/092f0ccf-8eea-467c-9e52-872e637919e2)  
+> It also displays the manual page section number. To read the third section, the one about the C, `man 5 hostname` can be used.  
+    ![man_command](https://github.com/user-attachments/assets/2f9d808c-65b1-46a7-aece-b478bb143222)
